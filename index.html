@@ -143,13 +143,13 @@ const G0=null;const FI=null;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const foto=k=>{if(!k)return "";if(FI)return FI[k]||"";if(k.startsWith("lib:"))return "fotos/"+k.slice(4)+".jpg";if(k.startsWith("up:"))return "fotos/u-"+k.slice(3)+".jpg";return k.startsWith("data:")?k:"";};
-let D,R={resp:{},amb:{}},CH="",T=[],at=0,dir=1,nPerg=0;
+let D,M,R={resp:{},amb:{}},CH="",T=[],at=0,dir=1,nPerg=0;
 const guardar=()=>{if(D.previa)return;try{localStorage.setItem(CH,JSON.stringify(R));}catch(e){}};
 function lerHash(){const h=location.hash.slice(1);if(!h)return null;try{const b=atob(h.replace(/-/g,"+").replace(/_/g,"/"));return JSON.parse(new TextDecoder().decode(Uint8Array.from(b,c=>c.charCodeAt(0))));}catch(e){return null;}}
 function erro(t){$("#carrega")?.remove();document.body.innerHTML=`<div class="erro"><div><b>Ops!</b>${t}</div></div>`;}
 async function iniciar(){let G=G0;
   if(!G){try{G=await fetch("dados.json?"+Date.now(),{cache:"no-store"}).then(r=>r.json());}catch(e){return erro("Não consegui abrir o briefing agora. Confira a internet e tente de novo.");}}
-  const P=G.p||lerHash();const m=P&&G.modelos[P.t];
+  const P=G.p||lerHash();const m=P&&G.modelos[P.t];M=m;
   if(!m)return erro(`Este link está incompleto. Peça um novo para ${esc(G.arquiteto||"o arquiteto")}.`);
   const ambientes=(P.a||[]).map(([id,nome,ref,f])=>{const r=(m.ambientes||[]).find(x=>x.id===ref);return {id,nome,ref:r?ref:"",foto:r?.foto||f||"lib:amb-sala",perguntas:r?r.perguntas:(m.ambGeral||[])};});
   D={bid:P.i,tipo:P.t,ver:G.ver||"",previa:P.i==="previa",cliente:P.c||"",primeiroNome:P.n||"",arquiteto:G.arquiteto||"",escritorio:G.escritorio||"",whats:G.whats||"",logo:G.logo||"",
@@ -247,12 +247,20 @@ function limpo(ps,V){const o={...(V||{})};ps.forEach(p=>{if(p.se&&![].concat(o[p
 function respostas(){const amb={};D.ambientes.forEach(a=>{if(R.amb[a.id])amb[a.id]=limpo(a.perguntas,R.amb[a.id]);});
   return {v:3,i:D.bid,t:D.tipo,ver:D.ver,cliente:D.cliente,ambs:D.ambientes.map(a=>[a.id,a.nome,a.ref]),resp:limpo(D.secoes.flatMap(s=>s.perguntas),R.resp),amb,enviadoEm:new Date().toISOString()};}
 const b64=u=>{let s="";for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s);};
-async function codigo(o){const b=new TextEncoder().encode(JSON.stringify(o));
-  try{if(window.CompressionStream){const cs=new CompressionStream("deflate-raw");const w=cs.writable.getWriter();w.write(b);w.close();return "LFXB2z."+b64(new Uint8Array(await new Response(cs.readable).arrayBuffer()));}}catch(e){}return "LFXB2."+b64(b);}
-function resumoTexto(){const L=[`Briefing · ${D.cliente||"cliente"}`];D.secoes.forEach(s=>{if(s.tipo==="ambientes")return;s.perguntas.forEach(p=>{const v=R.resp[p.id];if(!v||(Array.isArray(v)&&!v.length))return;
-  const t=p.tipo==="escolha"?[].concat(v).map(id=>p.opcoes.find(o=>o.id===id)?.rotulo).filter(Boolean).join(", "):String(v);if(t&&L.length<9)L.push(`${p.titulo}: ${t}`);});});
-  const amb=D.ambientes.filter(a=>respondidas(a)).map(a=>a.nome);if(amb.length)L.push("Ambientes: "+amb.join(", "));return L.join("\n");}
-async function enviarWA(){const cod=await codigo(respostas()),msg=resumoTexto()+"\n\nCódigo das respostas (não apague):\n"+cod;
+async function codigo(o){const b=new TextEncoder().encode(JSON.stringify(o)),ps=o.v===4?"LFXB4":"LFXB2";
+  try{if(window.CompressionStream){const cs=new CompressionStream("deflate-raw");const w=cs.writable.getWriter();w.write(b);w.close();return ps+"z."+b64(new Uint8Array(await new Response(cs.readable).arrayBuffer()));}}catch(e){}return ps+"."+b64(b);}
+/* Mensagem do WhatsApp (2.93.5, pedido do Luan: "o link assim é muito feio"): resumo bonito com negrito e tópicos e, no fim, um código
+   CURTO (v:4): as respostas vão como posição da pergunta e da opção no modelo, não como ids. O sistema reconstrói com o modelo da versão. */
+function codigoCurto(){const Q=M.secoes.flatMap(s=>s.perguntas),r=[];const val=(p,v)=>p.tipo==="escolha"?(Array.isArray(v)?v.map(id=>p.opcoes.findIndex(o=>o.id===id)).filter(i=>i>=0):p.opcoes.findIndex(o=>o.id===v)):String(v);
+  const vazio=v=>v==null||v===""||(Array.isArray(v)&&!v.length);
+  const resp=limpo(Q,R.resp);Q.forEach((p,i)=>{const v=resp[p.id];if(!vazio(v)){const x=val(p,v);if(x!==-1&&!(Array.isArray(x)&&!x.length))r.push([i,x]);}});
+  M.secoes.forEach((s,i)=>{const n=R.resp["nota:"+s.id];if(n)r.push(["n",i,n]);});
+  D.ambientes.forEach((am,ai)=>{const V=limpo(am.perguntas,R.amb[am.id]);const L=[];am.perguntas.forEach((p,i)=>{const v=V[p.id];if(!vazio(v)){const x=val(p,v);if(x!==-1&&!(Array.isArray(x)&&!x.length))L.push([i,x]);}});if(L.length||V.nota)r.push(["a",ai,L,V.nota||""]);});
+  return {v:4,i:D.bid,t:D.tipo,ver:D.ver,r};}
+// 2.93.6, pedido do Luan: a mensagem não descreve as respostas; só avisa quem respondeu e leva o código.
+function resumoTexto(){return `✅ *Briefing respondido · ${D.cliente||"cliente"}*
+_${D.tipo==="interiores"?"Interiores":"Construção"} · ${D.escritorio}_`;}
+async function enviarWA(){const cod=await codigo(codigoCurto()),msg=resumoTexto()+"\n\n"+cod;
   if(msg.length>60000){alert("As respostas ficaram grandes demais para o WhatsApp. Use 'Salvar as respostas em arquivo'.");return;}
   const url="https://wa.me/"+(D.whats||"")+"?text="+encodeURIComponent(msg);window.open(url,"_blank")||(location.href=url);}
 function salvarArquivo(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify({acao:"briefing_respostas",dados:{respostas:respostas()}},null,1)],{type:"application/json"}));
