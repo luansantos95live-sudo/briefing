@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#121813">
+<title>Briefing · LFX Arquitetura</title>
+<meta property="og:title" content="Briefing do seu projeto · LFX Arquitetura"><meta property="og:description" content="Perguntas rápidas, quase todas com imagens, para entender como você vive e do que você gosta."><meta property="og:image" content="https://luansantos95live-sudo.github.io/briefing/fotos/estilo-contemporaneo-f.jpg"><meta property="og:type" content="website">
+<style>
+:root{--v:#3AB81E;--ve:#2a8a14;--bg:#f5f4f0;--card:#fff;--tx:#1b1f1a;--su:#6b716a;--bd:#e4e2db;--esc:#121813;--sombra:0 1px 2px rgba(20,30,20,.06),0 6px 20px rgba(20,30,20,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer;color:inherit}input,textarea{font:inherit}
+.hero{position:fixed;inset:0;z-index:20;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--esc)}
+.hero.sai{animation:heroSai .55s cubic-bezier(.6,0,.4,1) forwards}
+@keyframes heroSai{to{transform:translateY(-100%);opacity:.6}}
+.hero-foto{position:absolute;inset:-4%;background:center/cover no-repeat;animation:kb 18s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-2%,-2%)}}
+.hero-sombra{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,11,.25) 0%,rgba(10,14,11,.1) 30%,rgba(10,14,11,.82) 72%,rgba(10,14,11,.96) 100%)}
+.hero-in{position:relative;padding:28px 24px calc(28px + env(safe-area-inset-bottom));max-width:620px;width:100%;margin:0 auto}
+.hero-logo{position:absolute;top:calc(22px + env(safe-area-inset-top));left:24px;display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:0;animation:sobe .7s .1s forwards}
+.hero-logo img{height:34px}
+.hero small.oi{display:block;font-size:15px;color:#bfe8b3;margin-bottom:6px;opacity:0;animation:sobe .7s .25s forwards}
+.hero h1{font-size:34px;line-height:1.1;margin:0 0 12px;letter-spacing:-.01em;opacity:0;animation:sobe .7s .4s forwards}
+.hero p{margin:0 0 18px;color:#dfe7df;font-size:16px;opacity:0;animation:sobe .7s .55s forwards}
+.hero .passos{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px;opacity:0;animation:sobe .7s .7s forwards}
+.hero .passos span{font-size:12.5px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px)}
+.hero .tempo{font-size:13px;color:#bfc8bf;margin-bottom:14px;opacity:0;animation:sobe .7s .8s forwards}
+.hero button.comecar{width:100%;border:0;border-radius:16px;padding:17px;font-size:17px;font-weight:700;background:var(--v);color:#fff;box-shadow:0 10px 30px rgba(58,184,30,.35);opacity:0;animation:sobe .7s .9s forwards,pulsa 2.4s 2s ease-in-out infinite}
+@keyframes sobe{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pulsa{50%{box-shadow:0 10px 40px rgba(58,184,30,.6)}}
+.topo{position:sticky;top:0;z-index:5;background:rgba(18,24,19,.96);backdrop-filter:blur(8px);color:#dfe7df;padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+.topo-in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px}.topo img{height:26px}.topo b{font-size:14px;display:block}.topo small{font-size:12px;color:#9fae9f}
+.prog{max-width:720px;margin:8px auto 0;display:flex;gap:4px}.prog i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.15);overflow:hidden;position:relative}
+.prog i.feito::after,.prog i.at::after{content:"";position:absolute;inset:0;background:var(--v);transform-origin:left;animation:enche .5s ease forwards}.prog i.at::after{opacity:.55}
+@keyframes enche{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+main{max-width:720px;margin:0 auto;padding:18px 16px 130px}
+.tela{animation:entra .42s cubic-bezier(.2,.8,.3,1)}.tela.volta{animation:entraV .42s cubic-bezier(.2,.8,.3,1)}
+@keyframes entra{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes entraV{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+.etq{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ve);font-weight:700}
+h1.t{font-size:26px;line-height:1.15;margin:4px 0 6px}.sub{color:var(--su);margin:0 0 16px;font-size:15px}
+.perg{margin:22px 0 8px;animation:sobe .5s both}
+.perg>.pt{font-weight:700;font-size:17px;margin:0 0 2px}.perg>.pa{color:var(--su);font-size:13.5px;margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:1.5px solid var(--bd);background:var(--card);border-radius:999px;padding:10px 16px;font-size:15px;transition:transform .12s,background .15s,border-color .15s,color .15s}
+.chip.on{background:var(--v);border-color:var(--v);color:#fff;font-weight:600}.chip:active{transform:scale(.95)}
+.fotos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}@media(min-width:560px){.fotos{grid-template-columns:repeat(3,1fr)}}
+.fotos.duas{grid-template-columns:repeat(2,1fr)}
+.fo{position:relative;border:0;padding:0;background:var(--card);border-radius:18px;overflow:hidden;text-align:left;box-shadow:var(--sombra);transition:transform .15s,box-shadow .2s;outline:3px solid transparent;outline-offset:-3px}
+.fo:active{transform:scale(.97)}
+.fo .im{display:block;width:100%;aspect-ratio:4/3;background:#ddd center/cover no-repeat;transition:transform .5s}
+.fo.on{outline-color:var(--v);box-shadow:0 8px 26px rgba(58,184,30,.28)}.fo.on .im{transform:scale(1.04)}
+.fo .n{display:block;padding:9px 11px 2px;font-weight:700;font-size:14.5px}.fo .d{display:block;padding:0 11px 11px;font-size:12.5px;color:var(--su);line-height:1.32}
+.fo .ok{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.85);border:2px solid #fff;display:grid;place-items:center;color:transparent;font-weight:800;transition:.2s}
+.fo.on .ok{background:var(--v);color:#fff;animation:pop .32s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{0%{transform:scale(.4)}100%{transform:scale(1)}}
+.fo .cores{display:flex;height:100%;width:100%}.fo .cores i{flex:1}
+.txt{width:100%;border:1.5px solid var(--bd);border-radius:14px;padding:12px 14px;background:#fff;font-size:15.5px;margin-top:8px;transition:border-color .15s}.txt:focus{outline:0;border-color:var(--v)}textarea.txt{min-height:90px;resize:vertical}
+.ambs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}@media(min-width:560px){.ambs{grid-template-columns:repeat(3,1fr)}}
+.amb{position:relative;border:0;border-radius:18px;overflow:hidden;aspect-ratio:1/1.05;background:#ccc center/cover;color:#fff;text-align:left;box-shadow:var(--sombra);animation:sobe .45s both;transition:transform .15s}
+.amb:active{transform:scale(.97)}.amb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72))}
+.amb b{position:absolute;left:12px;bottom:28px;z-index:1;font-size:16px}.amb small{position:absolute;left:12px;bottom:10px;z-index:1;font-size:12px;opacity:.9}
+.amb .feito{position:absolute;top:10px;right:10px;z-index:1;background:var(--v);border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700}
+.folha{position:fixed;inset:0;z-index:15;background:var(--bg);overflow-y:auto;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.8,.3,1)}
+.folha.on{transform:none}
+.folha-cap{height:220px;background:center/cover;position:relative}.folha-cap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,0) 40%,rgba(245,244,240,1) 100%)}
+.folha-volta{position:absolute;top:calc(14px + env(safe-area-inset-top));left:14px;z-index:2;border:0;border-radius:999px;background:rgba(255,255,255,.9);padding:9px 14px;font-weight:600;box-shadow:var(--sombra)}
+.folha main{margin-top:-40px;position:relative;z-index:1}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:10;background:rgba(245,244,240,.92);backdrop-filter:blur(10px);border-top:1px solid var(--bd);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.nav-in{max-width:720px;margin:0 auto;display:flex;gap:10px}
+.btn{border:0;border-radius:14px;padding:15px 18px;font-weight:700;font-size:16px;background:var(--v);color:#fff;flex:1;transition:transform .12s,filter .15s}.btn:active{transform:scale(.97)}
+.btn.sec{background:#fff;color:var(--tx);border:1.5px solid var(--bd);flex:0 0 auto}
+.res{background:var(--card);border-radius:18px;padding:16px;margin:12px 0;box-shadow:var(--sombra);animation:sobe .5s both}
+.res h3{margin:0 0 8px;font-size:12px;color:var(--su);text-transform:uppercase;letter-spacing:.1em}
+.mini{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}.mini i{flex:0 0 74px;height:56px;border-radius:10px;background:center/cover}
+.parabens{text-align:center;padding:16px 0 4px}.parabens .ic{width:76px;height:76px;border-radius:50%;background:var(--v);color:#fff;display:grid;place-items:center;font-size:38px;margin:0 auto 12px;animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+.dica{font-size:12.5px;color:var(--su);margin-top:6px}
+.nota{margin:30px 0 4px;padding:14px 14px 12px;border-radius:18px;background:#fbf7ea;border:1.5px dashed #e6d9a8;animation:sobe .5s both}
+.nota label{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}.nota label span{font-weight:500;font-size:12px;color:var(--su);background:#fff;border-radius:999px;padding:2px 8px}
+.nota p{margin:2px 0 0;font-size:13px;color:var(--su)}.nota .txt{background:#fff;min-height:74px}
+.previa{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:30;background:#e3b23c;color:#2b2200;font-size:11px;font-weight:700;padding:3px 12px;border-radius:0 0 10px 10px;letter-spacing:.06em}
+.erro{min-height:100vh;display:grid;place-items:center;text-align:center;padding:30px;color:#dfe7df;background:var(--esc)}.erro b{display:block;font-size:22px;margin-bottom:8px;color:#fff}
+.carrega{position:fixed;inset:0;display:grid;place-items:center;background:var(--esc);z-index:40;transition:opacity .4s}.carrega i{width:38px;height:38px;border-radius:50%;border:3px solid rgba(255,255,255,.15);border-top-color:var(--v);animation:gira .8s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="carrega" id="carrega"><i></i></div>
+<div class="hero" id="hero"></div>
+<div class="topo" id="topo" hidden><div class="topo-in"><img id="logo" alt=""><div><b id="t-nome"></b><small id="t-etapa"></small></div></div><div class="prog" id="prog"></div></div>
+<main id="tela"></main>
+<div class="folha" id="folha"></div>
+<div class="nav" id="nav" hidden><div class="nav-in"><button class="btn sec" id="b-volta">Voltar</button><button class="btn" id="b-prox">Continuar</button></div></div>
+<script>
+/* Página do briefing (2.92). Dois jeitos de abrir:
+   - hospedada (GitHub Pages): G0 e FI ficam null; lê dados.json (briefings padrão) ao lado e os dados do envio no endereço (#...).
+   - arquivo/prévia: o sistema cola G0 (com p = dados do envio) e FI (fotos em data URL). */
+const G0=null;const FI=null;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const foto=k=>{if(!k)return "";if(FI)return FI[k]||"";if(k.startsWith("lib:"))return "fotos/"+k.slice(4)+".jpg";if(k.startsWith("up:"))return "fotos/u-"+k.slice(3)+".jpg";return k.startsWith("data:")?k:"";};
+let D,R={resp:{},amb:{}},CH="",T=[],at=0,dir=1,nPerg=0;
+const guardar=()=>{if(D.previa)return;try{localStorage.setItem(CH,JSON.stringify(R));}catch(e){}};
+function lerHash(){const h=location.hash.slice(1);if(!h)return null;try{const b=atob(h.replace(/-/g,"+").replace(/_/g,"/"));return JSON.parse(new TextDecoder().decode(Uint8Array.from(b,c=>c.charCodeAt(0))));}catch(e){return null;}}
+function erro(t){$("#carrega")?.remove();document.body.innerHTML=`<div class="erro"><div><b>Ops!</b>${t}</div></div>`;}
+async function iniciar(){let G=G0;
+  if(!G){try{G=await fetch("dados.json?"+Date.now(),{cache:"no-store"}).then(r=>r.json());}catch(e){return erro("Não consegui abrir o briefing agora. Confira a internet e tente de novo.");}}
+  const P=G.p||lerHash();const m=P&&G.modelos[P.t];
+  if(!m)return erro(`Este link está incompleto. Peça um novo para ${esc(G.arquiteto||"o arquiteto")}.`);
+  const ambientes=(P.a||[]).map(([id,nome,ref,f])=>{const r=(m.ambientes||[]).find(x=>x.id===ref);return {id,nome,ref:r?ref:"",foto:r?.foto||f||"lib:amb-sala",perguntas:r?r.perguntas:(m.ambGeral||[])};});
+  D={bid:P.i,tipo:P.t,ver:G.ver||"",previa:P.i==="previa",cliente:P.c||"",primeiroNome:P.n||"",arquiteto:G.arquiteto||"",escritorio:G.escritorio||"",whats:G.whats||"",logo:G.logo||"",
+    capa:m.capa,ambientes,secoes:m.secoes.filter(s=>s.tipo==="ambientes"?ambientes.length:s.perguntas.length)};
+  document.title=`Briefing · ${D.cliente||D.escritorio}`;
+  CH="lfx_brief3_"+D.bid;try{if(!D.previa)R=Object.assign(R,JSON.parse(localStorage.getItem(CH)||"{}"));}catch(e){}
+  nPerg=D.secoes.reduce((s,x)=>s+(x.tipo==="ambientes"?D.ambientes.reduce((a,b)=>a+b.perguntas.length,0):x.perguntas.length),0);
+  T=[...D.secoes.map(s=>({s})),{fim:true}];at=Math.min(R._at||0,T.length-1);
+  if(D.previa)document.body.insertAdjacentHTML("afterbegin",'<div class="previa">PRÉVIA · como o cliente vê</div>');
+  const capa=new Image();capa.onload=capa.onerror=hero;capa.src=foto(D.capa.foto);setTimeout(hero,2500);}
+let heroFeito=false;
+function hero(){if(heroFeito)return;heroFeito=true;const c=$("#carrega");if(c){c.style.opacity=0;setTimeout(()=>c.remove(),400);}
+  const minutos=Math.max(5,Math.round(nPerg*.3/5)*5);
+  $("#hero").innerHTML=`<div class="hero-foto" style="background-image:url('${foto(D.capa.foto)}')"></div><div class="hero-sombra"></div>
+  <div class="hero-logo">${D.logo?`<img src="${D.logo}" alt="">`:""}<span>${esc(D.escritorio)}</span></div>
+  <div class="hero-in"><small class="oi">${D.primeiroNome?`Olá, ${esc(D.primeiroNome)}!`:"Olá!"}</small><h1>${esc(D.capa.titulo)}</h1><p>${esc(D.capa.texto)}</p>
+  <div class="passos">${D.secoes.map(s=>`<span>${esc(s.titulo)}</span>`).join("")}</div><div class="tempo">⏱ cerca de ${minutos} minutos · as respostas ficam salvas neste aparelho</div>
+  <button class="comecar" id="b-comeca">${R._at?"Continuar de onde parei":"Começar"}</button></div>`;
+  $("#logo").src=D.logo||"";$("#t-nome").textContent=D.cliente?`Briefing · ${D.cliente}`:"Briefing";$("#b-comeca").onclick=comecar;}
+function comecar(){$("#hero").classList.add("sai");setTimeout(()=>{$("#hero").hidden=true;},560);$("#topo").hidden=false;$("#nav").hidden=false;desenhar();}
+function ehOn(val,id,multi){return multi?(val||[]).includes(id):val===id;}
+function pergHtml(p,val,k){const temFoto=(p.opcoes||[]).some(o=>o.foto||o.cores);
+  let corpo="";if(p.tipo==="escolha"){if(temFoto)corpo=`<div class="fotos ${p.opcoes.length===2?"duas":""}">${p.opcoes.map(o=>`<button type="button" class="fo ${ehOn(val,o.id,p.multi)?"on":""}" data-k="${k}" data-p="${p.id}" data-o="${o.id}"><span class="im" ${o.foto?`style="background-image:url('${foto(o.foto)}')"`:""}>${o.cores?`<span class="cores">${o.cores.map(c=>`<i style="background:${c}"></i>`).join("")}</span>`:""}</span><span class="ok">✓</span><span class="n">${esc(o.rotulo)}</span>${o.desc?`<span class="d">${esc(o.desc)}</span>`:""}</button>`).join("")}</div>`;
+    else corpo=`<div class="chips">${p.opcoes.map(o=>`<button type="button" class="chip ${ehOn(val,o.id,p.multi)?"on":""}" data-k="${k}" data-p="${p.id}" data-o="${o.id}">${esc(o.rotulo)}</button>`).join("")}</div>`;}
+  else corpo=p.tipo==="textoLongo"?`<textarea class="txt" data-k="${k}" data-p="${p.id}" data-t placeholder="Escreva aqui">${esc(val||"")}</textarea>`:`<input class="txt" data-k="${k}" data-p="${p.id}" data-t value="${esc(val||"")}" placeholder="Escreva aqui">`;
+  const aj=p.ajuda||(p.tipo==="escolha"&&p.multi?(p.max?`Escolha até ${p.max}.`:"Pode marcar mais de uma."):"");
+  return `<div class="perg"><p class="pt">${esc(p.titulo)}</p>${aj?`<p class="pa">${esc(aj)}</p>`:""}${corpo}</div>`;}
+// Caixinha de anotações no fim de cada etapa (2.92, pedido do Luan).
+const notaHtml=(k,pid,val,txt)=>`<div class="nota"><label>Anotações <span>opcional</span></label><p>${txt}</p><textarea class="txt" data-k="${k}" data-p="${pid}" data-t placeholder="Escreva aqui">${esc(val||"")}</textarea></div>`;
+const respondidas=a=>Object.values(R.amb[a.id]||{}).filter(v=>Array.isArray(v)?v.length:v).length;
+function fotosDe(t){const L=[];if(!t||t.fim)return L;if(t.s.tipo==="ambientes")D.ambientes.forEach(a=>L.push(foto(a.foto)));else t.s.perguntas.forEach(p=>(p.opcoes||[]).forEach(o=>o.foto&&L.push(foto(o.foto))));return L;}
+function preCarregar(){if(FI)return;fotosDe(T[at+1]).forEach(u=>{const i=new Image();i.src=u;});}
+function desenhar(){const t=T[at],tela=$("#tela");tela.className="";void tela.offsetWidth;tela.className="tela"+(dir<0?" volta":"");
+  $("#prog").innerHTML=T.slice(0,-1).map((_,i)=>`<i class="${i<at?"feito":i===at?"at":""}"></i>`).join("");
+  $("#t-etapa").textContent=t.fim?"Pronto!":`Passo ${at+1} de ${T.length-1} · ${t.s.titulo}`;
+  if(t.fim){tela.innerHTML=fimHtml();$("#b-prox").hidden=true;}
+  else{const s=t.s;$("#b-prox").hidden=false;$("#b-prox").textContent=at===T.length-2?"Concluir":"Continuar";
+    tela.innerHTML=`<div class="etq">Passo ${at+1}</div><h1 class="t">${esc(s.titulo)}</h1>${s.texto?`<p class="sub">${esc(s.texto)}</p>`:""}`+
+      (s.tipo==="ambientes"?`<div class="ambs">${D.ambientes.map((a,i)=>{const n=respondidas(a);return `<button type="button" class="amb" data-amb="${a.id}" style="background-image:url('${foto(a.foto)}');animation-delay:${i*.04}s">${n?`<span class="feito">✓ ${n}</span>`:""}<b>${esc(a.nome)}</b><small>${n?"toque para revisar":"toque para responder"}</small></button>`;}).join("")}</div>`
+      :s.perguntas.map((p,i)=>pergHtml(p,R.resp[p.id],"r").replace('class="perg"',`class="perg" style="animation-delay:${Math.min(i,6)*.05}s"`)).join(""))+
+      notaHtml("r","nota:"+s.id,R.resp["nota:"+s.id],s.tipo==="ambientes"?"Algo sobre a casa toda ou um ambiente que não está na lista?":"Quer explicar alguma escolha ou contar algo que não perguntei?");}
+  $("#b-volta").style.visibility=at===0?"hidden":"visible";ligar(tela);window.scrollTo({top:0});R._at=at;guardar();preCarregar();}
+function ligar(raiz){
+  raiz.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{const k=b.dataset.k,pid=b.dataset.p,o=b.dataset.o,alvo=k==="r"?R.resp:(R.amb[k]=R.amb[k]||{});
+    const p=achaP(k,pid);if(p.multi){let v=[...(alvo[pid]||[])];if(v.includes(o))v=v.filter(x=>x!==o);else{if(p.max&&v.length>=p.max)v.shift();v.push(o);}alvo[pid]=v;}else alvo[pid]=alvo[pid]===o?"":o;
+    guardar();raiz.querySelectorAll(`[data-k="${k}"][data-p="${pid}"][data-o]`).forEach(x=>x.classList.toggle("on",ehOn(alvo[pid],x.dataset.o,p.multi)));if(navigator.vibrate)try{navigator.vibrate(8);}catch(e){}});
+  raiz.querySelectorAll("[data-t]").forEach(i=>i.oninput=()=>{const k=i.dataset.k,alvo=k==="r"?R.resp:(R.amb[k]=R.amb[k]||{});alvo[i.dataset.p]=i.value;guardar();});
+  raiz.querySelectorAll("[data-amb]").forEach(b=>b.onclick=()=>abrirAmb(b.dataset.amb));
+  const wa=raiz.querySelector("#b-wa");if(wa)wa.onclick=enviarWA;const ar=raiz.querySelector("#b-arq");if(ar)ar.onclick=salvarArquivo;}
+function achaP(k,pid){if(k==="r"){for(const s of D.secoes)for(const p of s.perguntas)if(p.id===pid)return p;}else{const a=D.ambientes.find(x=>x.id===k);return a?.perguntas.find(p=>p.id===pid)||{};}return {};}
+function abrirAmb(id){const a=D.ambientes.find(x=>x.id===id),f=$("#folha");R.amb[id]=R.amb[id]||{};
+  f.innerHTML=`<div class="folha-cap" style="background-image:url('${foto(a.foto)}')"><button class="folha-volta" id="f-volta">‹ Ambientes</button></div><main><div class="etq">Ambiente</div><h1 class="t">${esc(a.nome)}</h1><p class="sub">Responda só o que fizer sentido.</p>${a.perguntas.map(p=>pergHtml(p,R.amb[id][p.id],id)).join("")}
+    ${notaHtml(id,"nota",R.amb[id].nota,`Algo mais sobre este ambiente? Um móvel que vai junto, uma mania, um sonho...`)}
+    <button class="btn" id="f-ok" style="width:100%;margin-top:22px">Pronto, voltar aos ambientes</button></main>`;
+  f.scrollTop=0;requestAnimationFrame(()=>f.classList.add("on"));ligar(f);const fecha=()=>{f.classList.remove("on");setTimeout(()=>{f.innerHTML="";},400);desenhar();};$("#f-volta").onclick=fecha;$("#f-ok").onclick=fecha;}
+$("#b-prox").onclick=()=>{if(at<T.length-1){dir=1;at++;desenhar();}};
+$("#b-volta").onclick=()=>{if(at>0){dir=-1;at--;desenhar();}};
+function escolhidas(){const L=[];const pega=(ps,vals)=>ps.forEach(p=>{if(p.tipo!=="escolha")return;[].concat(vals?.[p.id]||[]).forEach(id=>{const o=p.opcoes.find(x=>x.id===id);if(o&&o.foto)L.push(o);});});
+  D.secoes.forEach(s=>pega(s.perguntas,R.resp));D.ambientes.forEach(a=>pega(a.perguntas,R.amb[a.id]));return L;}
+function fimHtml(){const E=escolhidas(),amb=D.ambientes.filter(a=>respondidas(a));
+  return `<div class="parabens"><div class="ic">✓</div><h1 class="t">Obrigado${D.primeiroNome?", "+esc(D.primeiroNome):""}!</h1><p class="sub">Agora é só enviar. O ${esc(D.arquiteto)} recebe tudo organizado e, no projeto, vamos ver juntos o que funciona melhor.</p></div>
+  ${E.length?`<div class="res"><h3>Você escolheu</h3><div class="mini">${E.slice(0,24).map(o=>`<i style="background-image:url('${foto(o.foto)}')" title="${esc(o.rotulo)}"></i>`).join("")}</div></div>`:""}
+  ${D.ambientes.length?`<div class="res"><h3>Ambientes respondidos</h3><p style="margin:0">${amb.length} de ${D.ambientes.length}${amb.length<D.ambientes.length?" · você pode voltar e completar":""}</p></div>`:""}
+  <div class="res"><h3>Enviar</h3><p style="margin:0 0 10px">Toque no botão: o WhatsApp abre com um resumo e um código. Envie a mensagem como está, sem apagar o código.</p>
+  <button class="btn" id="b-wa" style="width:100%">Enviar pelo WhatsApp</button><button class="btn sec" id="b-arq" style="width:100%;margin-top:8px">Salvar as respostas em arquivo</button><p class="dica">Use o arquivo se o WhatsApp não abrir: é só mandá-lo para o ${esc(D.arquiteto)}.</p></div>`;}
+function respostas(){return {v:3,i:D.bid,t:D.tipo,ver:D.ver,cliente:D.cliente,ambs:D.ambientes.map(a=>[a.id,a.nome,a.ref]),resp:R.resp,amb:R.amb,enviadoEm:new Date().toISOString()};}
+const b64=u=>{let s="";for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s);};
+async function codigo(o){const b=new TextEncoder().encode(JSON.stringify(o));
+  try{if(window.CompressionStream){const cs=new CompressionStream("deflate-raw");const w=cs.writable.getWriter();w.write(b);w.close();return "LFXB2z."+b64(new Uint8Array(await new Response(cs.readable).arrayBuffer()));}}catch(e){}return "LFXB2."+b64(b);}
+function resumoTexto(){const L=[`Briefing · ${D.cliente||"cliente"}`];D.secoes.forEach(s=>{if(s.tipo==="ambientes")return;s.perguntas.forEach(p=>{const v=R.resp[p.id];if(!v||(Array.isArray(v)&&!v.length))return;
+  const t=p.tipo==="escolha"?[].concat(v).map(id=>p.opcoes.find(o=>o.id===id)?.rotulo).filter(Boolean).join(", "):String(v);if(t&&L.length<9)L.push(`${p.titulo}: ${t}`);});});
+  const amb=D.ambientes.filter(a=>respondidas(a)).map(a=>a.nome);if(amb.length)L.push("Ambientes: "+amb.join(", "));return L.join("\n");}
+async function enviarWA(){const cod=await codigo(respostas()),msg=resumoTexto()+"\n\nCódigo das respostas (não apague):\n"+cod;
+  if(msg.length>60000){alert("As respostas ficaram grandes demais para o WhatsApp. Use 'Salvar as respostas em arquivo'.");return;}
+  const url="https://wa.me/"+(D.whats||"")+"?text="+encodeURIComponent(msg);window.open(url,"_blank")||(location.href=url);}
+function salvarArquivo(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify({acao:"briefing_respostas",dados:{respostas:respostas()}},null,1)],{type:"application/json"}));
+  a.download=`briefing-${(D.cliente||"cliente").replace(/[^\w]+/g,"-").toLowerCase()}.json`;a.click();}
+iniciar();
+</script>
+</body>
+</html>
