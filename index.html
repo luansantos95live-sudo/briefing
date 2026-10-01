@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#121813">
 <title>Briefing · LFX Arquitetura</title>
-<meta property="og:title" content="Briefing do seu projeto · LFX Arquitetura"><meta property="og:description" content="Perguntas rápidas, quase todas com imagens, para entender como você vive e do que você gosta."><meta property="og:image" content="https://luansantos95live-sudo.github.io/briefing/fotos/estilo-contemporaneo-f.jpg"><meta property="og:type" content="website">
+<meta property="og:title" content="Briefing do seu projeto · LFX Arquitetura"><meta property="og:description" content="Perguntas rápidas, quase todas com imagens, para entender como você vive e do que você gosta."><meta property="og:image" content="https://luansantos95live-sudo.github.io/briefing/fotos/estilo-moderno-f.jpg"><meta property="og:type" content="website">
 <style>
 :root{--v:#3AB81E;--ve:#2a8a14;--bg:#f5f4f0;--card:#fff;--tx:#1b1f1a;--su:#6b716a;--bd:#e4e2db;--esc:#121813;--sombra:0 1px 2px rgba(20,30,20,.06),0 6px 20px rgba(20,30,20,.06)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{-webkit-text-size-adjust:100%}
@@ -76,6 +76,48 @@ h1.t{font-size:26px;line-height:1.15;margin:4px 0 6px}.sub{color:var(--su);margi
 .mini{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}.mini i{flex:0 0 74px;height:56px;border-radius:10px;background:center/cover}
 .parabens{text-align:center;padding:16px 0 4px}.parabens .ic{width:76px;height:76px;border-radius:50%;background:var(--v);color:#fff;display:grid;place-items:center;font-size:38px;margin:0 auto 12px;animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
 .dica{font-size:12.5px;color:var(--su);margin-top:6px}
+.hero h1{font-size:30px}.hero p{font-size:15px;margin-bottom:14px}
+.como{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:12px 14px;margin:0 0 14px;opacity:0;animation:sobe .7s .7s forwards}
+.como>b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#bfe8b3;margin-bottom:8px}
+.cf{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.35;color:#e7ede7;margin:7px 0}.cf strong{color:#fff}
+.cf i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--v);color:#fff;font-style:normal;font-weight:800;font-size:12px;display:grid;place-items:center;margin-top:1px}
+.cf.cl{color:var(--tx)}.cf.cl strong{color:var(--tx)}
+.perg.oculta{display:none}.perg.aparece{animation:abre .45s cubic-bezier(.2,.8,.3,1) both}
+@keyframes abre{from{opacity:0;transform:translateY(-8px);max-height:0}to{opacity:1;transform:none;max-height:1200px}}
+/* guia animado */
+.tut[hidden]{display:none}
+.tut{position:fixed;inset:0;z-index:25;background:radial-gradient(120% 80% at 50% 0%,#24332a,#0d120e 70%);color:#fff;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top)) 22px calc(22px + env(safe-area-inset-bottom));animation:tutEntra .45s cubic-bezier(.2,.8,.3,1);user-select:none;-webkit-user-select:none}
+.tut.sai{animation:tutSai .45s ease forwards}@keyframes tutEntra{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}@keyframes tutSai{to{opacity:0;transform:translateY(-30px)}}
+.tut-bar{display:flex;gap:5px}.tut-bar i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.2);overflow:hidden}.tut-bar i.ok{background:#fff}
+.tut-bar i.at b{display:block;height:100%;background:#fff;transform-origin:left;animation:tutBar linear forwards}@keyframes tutBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.tut-pular{position:absolute;top:calc(28px + env(safe-area-inset-top));right:18px;border:0;background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:6px 14px;font-size:13px}
+.tut-cena{flex:1;display:grid;place-items:center;min-height:0}
+.tut-tx{animation:sobe .5s .1s both}.tut-tx small{color:#bfe8b3;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.tut-tx h2{font-size:26px;line-height:1.15;margin:6px 0 8px}.tut-tx p{margin:0;color:#cfd8cf;font-size:15.5px;line-height:1.45}
+.tut-pe{margin-top:18px;min-height:56px;display:grid;place-items:center}.tut-dica{font-size:12.5px;color:#8fa08f;animation:pisca 1.6s ease-in-out infinite}@keyframes pisca{50%{opacity:.4}}
+.tut-pe .comecar{width:100%;border:0;border-radius:16px;padding:17px;font-size:17px;font-weight:700;background:var(--v);color:#fff;box-shadow:0 10px 30px rgba(58,184,30,.35);animation:sobe .5s both,pulsa 2.4s 1s ease-in-out infinite}
+.tc{position:relative;width:260px;height:250px;border-radius:26px;background:#f5f4f0;color:#1b1f1a;box-shadow:0 20px 50px rgba(0,0,0,.45);padding:16px;animation:sobe .5s both;overflow:hidden}
+.tc-q{font-weight:700;font-size:14px;margin-bottom:12px}.tc-g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tc-f{position:relative;height:150px;border-radius:14px;background:#ccc center/cover;outline:3px solid transparent;outline-offset:-3px}
+.tc-f i{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#3AB81E;color:#fff;font-style:normal;font-weight:800;font-size:13px;display:grid;place-items:center;transform:scale(0)}
+.tc1 .tc-f.a{animation:tcSel 4.2s infinite}.tc1 .tc-f.a i{animation:tcOk 4.2s infinite}
+@keyframes tcSel{0%,44%{outline-color:transparent;transform:none}50%{transform:scale(.95)}56%,100%{outline-color:#3AB81E;transform:none}}
+@keyframes tcOk{0%,52%{transform:scale(0)}62%{transform:scale(1.25)}70%,100%{transform:scale(1)}}
+.dedo{position:absolute;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.75);border:2px solid rgba(0,0,0,.25);box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none}
+.tc1 .dedo{animation:dedo1 4.2s infinite}@keyframes dedo1{0%{left:200px;top:230px;opacity:0}15%{opacity:1}42%{left:70px;top:120px;transform:none}50%{transform:scale(.75)}58%{transform:none;left:70px;top:120px;opacity:1}80%,100%{left:120px;top:240px;opacity:0}}
+.tc-lista{display:flex;flex-direction:column;gap:8px;animation:tcRola 4.2s infinite}.tc-lista b{height:14px;width:70%;border-radius:6px;background:#1b1f1a;opacity:.75}.tc-lista i{height:30px;border-radius:10px;background:#e4e2db}
+@keyframes tcRola{0%,15%{transform:none}55%,100%{transform:translateY(-110px)}}
+.tc-salvo{position:absolute;left:50%;top:84px;transform:translateX(-50%);background:#1b1f1a;color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap;opacity:0;animation:tcSalvo 4.2s infinite}
+@keyframes tcSalvo{0%,55%{opacity:0;transform:translate(-50%,8px)}65%,90%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}
+.tc-bt{position:absolute;left:16px;right:16px;bottom:16px;background:#3AB81E;color:#fff;font-weight:700;font-size:14px;text-align:center;padding:12px;border-radius:12px}
+.tc2 .tc-bt{animation:tcBt 4.2s infinite}@keyframes tcBt{0%,70%{transform:none}76%{transform:scale(.94)}82%,100%{transform:none}}
+.tc2 .dedo{animation:dedo2 4.2s infinite}@keyframes dedo2{0%,55%{left:180px;top:250px;opacity:0}66%{left:120px;top:205px;opacity:1;transform:none}76%{transform:scale(.75)}84%{transform:none;opacity:1}100%{left:120px;top:205px;opacity:0}}
+.tc-chat{border-radius:16px;background:#e9e2d6;height:160px;overflow:hidden;position:relative}
+.tc-cab{display:flex;align-items:center;gap:8px;background:#1f5c4a;color:#fff;font-size:12.5px;font-weight:600;padding:9px 10px}.tc-cab span{width:22px;height:22px;border-radius:50%;background:#3AB81E}
+.tc-bolha{position:absolute;right:10px;bottom:12px;background:#d8fdd2;color:#1b1f1a;font-size:12.5px;padding:8px 10px;border-radius:10px 10px 2px 10px;box-shadow:0 1px 2px rgba(0,0,0,.15);animation:tcVoa 4.2s infinite}
+.tc-bolha em{font-style:normal;color:#3aa6d8;font-size:11px;margin-left:6px;font-weight:700}
+@keyframes tcVoa{0%,45%{opacity:0;transform:translateY(90px) scale(.6)}62%,92%{opacity:1;transform:none}100%{opacity:0}}
+.tc3 .tc-bt.wa{background:#25D366;animation:tcBt3 4.2s infinite}@keyframes tcBt3{0%,30%{transform:none}38%{transform:scale(.94)}46%,100%{transform:none}}
+.tc3 .dedo{animation:dedo3 4.2s infinite}@keyframes dedo3{0%{left:190px;top:260px;opacity:0}20%{left:120px;top:205px;opacity:1;transform:none}38%{transform:scale(.75)}46%{transform:none;opacity:1}62%,100%{left:150px;top:260px;opacity:0}}
 .nota{margin:30px 0 4px;padding:14px 14px 12px;border-radius:18px;background:#fbf7ea;border:1.5px dashed #e6d9a8;animation:sobe .5s both}
 .nota label{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}.nota label span{font-weight:500;font-size:12px;color:var(--su);background:#fff;border-radius:999px;padding:2px 8px}
 .nota p{margin:2px 0 0;font-size:13px;color:var(--su)}.nota .txt{background:#fff;min-height:74px}
@@ -88,6 +130,7 @@ h1.t{font-size:26px;line-height:1.15;margin:4px 0 6px}.sub{color:var(--su);margi
 <body>
 <div class="carrega" id="carrega"><i></i></div>
 <div class="hero" id="hero"></div>
+<div class="tut" id="tut" hidden></div>
 <div class="topo" id="topo" hidden><div class="topo-in"><img id="logo" alt=""><div><b id="t-nome"></b><small id="t-etapa"></small></div></div><div class="prog" id="prog"></div></div>
 <main id="tela"></main>
 <div class="folha" id="folha"></div>
@@ -119,21 +162,47 @@ async function iniciar(){let G=G0;
   const capa=new Image();capa.onload=capa.onerror=hero;capa.src=foto(D.capa.foto);setTimeout(hero,2500);}
 let heroFeito=false;
 function hero(){if(heroFeito)return;heroFeito=true;const c=$("#carrega");if(c){c.style.opacity=0;setTimeout(()=>c.remove(),400);}
-  const minutos=Math.max(5,Math.round(nPerg*.3/5)*5);
+  const seg=p=>p.se?0:p.tipo==="escolha"?7:p.tipo==="texto"?12:20,soma=L=>L.reduce((t,p)=>t+seg(p),0);
+  const minutos=Math.max(3,Math.round((D.secoes.reduce((t,s)=>t+soma(s.perguntas),0)+D.ambientes.reduce((t,a)=>t+soma(a.perguntas),0))/60));
   $("#hero").innerHTML=`<div class="hero-foto" style="background-image:url('${foto(D.capa.foto)}')"></div><div class="hero-sombra"></div>
   <div class="hero-logo">${D.logo?`<img src="${D.logo}" alt="">`:""}<span>${esc(D.escritorio)}</span></div>
   <div class="hero-in"><small class="oi">${D.primeiroNome?`Olá, ${esc(D.primeiroNome)}!`:"Olá!"}</small><h1>${esc(D.capa.titulo)}</h1><p>${esc(D.capa.texto)}</p>
-  <div class="passos">${D.secoes.map(s=>`<span>${esc(s.titulo)}</span>`).join("")}</div><div class="tempo">⏱ cerca de ${minutos} minutos · as respostas ficam salvas neste aparelho</div>
+  <div class="tempo">${D.secoes.length} etapas · uns ${minutos} min</div>
   <button class="comecar" id="b-comeca">${R._at?"Continuar de onde parei":"Começar"}</button></div>`;
   $("#logo").src=D.logo||"";$("#t-nome").textContent=D.cliente?`Briefing · ${D.cliente}`:"Briefing";$("#b-comeca").onclick=comecar;}
-function comecar(){$("#hero").classList.add("sai");setTimeout(()=>{$("#hero").hidden=true;},560);$("#topo").hidden=false;$("#nav").hidden=false;desenhar();}
+function comecar(){$("#hero").classList.add("sai");setTimeout(()=>{$("#hero").hidden=true;},560);if(R._at||R._tut)return entrar();guia();}
+function entrar(){$("#topo").hidden=false;$("#nav").hidden=false;desenhar();}
+/* Guia animado (2.93.2, pedido do Luan): 3 cenas curtas, no estilo stories, mostram como preencher o briefing. Toque à direita avança,
+   à esquerda volta; cada cena passa sozinha. Aparece uma vez por briefing (R._tut). */
+function guia(){const t=$("#tut"),fs=[];D.secoes.forEach(s=>s.perguntas.forEach(p=>(p.opcoes||[]).forEach(o=>{if(o.foto&&fs.length<4&&!fs.includes(o.foto))fs.push(o.foto);})));
+  const f1=foto(fs[0]||D.capa.foto),f2=foto(fs[1]||D.capa.foto),arq=esc(D.arquiteto||"arquiteto"),DUR=4200;let i=0,tm=null;
+  const cenas=[
+    {t:"Toque no que você gosta",d:"Sem nomes técnicos. Vá pelo que sente.",c:`<div class="tc tc1"><div class="tc-q">Que ambientes te inspiram?</div><div class="tc-g"><span class="tc-f a" style="background-image:url('${f1}')"><i>✓</i></span><span class="tc-f" style="background-image:url('${f2}')"></span></div><span class="dedo"></span></div>`},
+    {t:"Pule o que quiser",d:"Fica tudo salvo. Dá para parar e voltar.",c:`<div class="tc tc2"><div class="tc-lista"><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i></div><div class="tc-salvo">✓ Salvo neste celular</div><div class="tc-bt">Continuar</div><span class="dedo"></span></div>`},
+    {t:"No fim, envie",d:`Chega no WhatsApp do ${arq}.`,c:`<div class="tc tc3"><div class="tc-chat"><div class="tc-cab"><span></span>${arq} · LFX</div><div class="tc-bolha">Briefing · respostas<em>✓✓</em></div></div><div class="tc-bt wa">Enviar pelo WhatsApp</div><span class="dedo"></span></div>`}];
+  const fim=()=>{clearTimeout(tm);R._tut=1;guardar();t.classList.add("sai");setTimeout(()=>{t.hidden=true;t.innerHTML="";t.classList.remove("sai");},450);entrar();};
+  const ir=n=>{clearTimeout(tm);if(n>=cenas.length)return fim();i=Math.max(0,n);const c=cenas[i];
+    t.innerHTML=`<div class="tut-bar">${cenas.map((_,k)=>`<i class="${k<i?"ok":k===i?"at":""}"><b style="animation-duration:${DUR}ms"></b></i>`).join("")}</div>
+      <button class="tut-pular" id="tut-pular">Pular</button>
+      <div class="tut-cena">${c.c}</div><div class="tut-tx"><small>Como funciona · ${i+1} de 3</small><h2>${c.t}</h2><p>${c.d}</p></div>
+      <div class="tut-pe">${i===cenas.length-1?'<button class="comecar" id="tut-ok">Entendi, vamos lá</button>':'<span class="tut-dica">toque para avançar</span>'}</div>`;
+    $("#tut-pular").onclick=e=>{e.stopPropagation();fim();};const ok=$("#tut-ok");if(ok)ok.onclick=e=>{e.stopPropagation();fim();};
+    if(i<cenas.length-1)tm=setTimeout(()=>ir(i+1),DUR);};
+  t.onclick=e=>{if(e.target.closest("button"))return;ir(e.clientX<innerWidth*.33?i-1:i+1);};
+  t.hidden=false;ir(0);}
 function ehOn(val,id,multi){return multi?(val||[]).includes(id):val===id;}
 function pergHtml(p,val,k){const temFoto=(p.opcoes||[]).some(o=>o.foto||o.cores);
   let corpo="";if(p.tipo==="escolha"){if(temFoto)corpo=`<div class="fotos ${p.opcoes.length===2?"duas":""}">${p.opcoes.map(o=>`<button type="button" class="fo ${ehOn(val,o.id,p.multi)?"on":""}" data-k="${k}" data-p="${p.id}" data-o="${o.id}"><span class="im" ${o.foto?`style="background-image:url('${foto(o.foto)}')"`:""}>${o.cores?`<span class="cores">${o.cores.map(c=>`<i style="background:${c}"></i>`).join("")}</span>`:""}</span><span class="ok">✓</span><span class="n">${esc(o.rotulo)}</span>${o.desc?`<span class="d">${esc(o.desc)}</span>`:""}</button>`).join("")}</div>`;
     else corpo=`<div class="chips">${p.opcoes.map(o=>`<button type="button" class="chip ${ehOn(val,o.id,p.multi)?"on":""}" data-k="${k}" data-p="${p.id}" data-o="${o.id}">${esc(o.rotulo)}</button>`).join("")}</div>`;}
   else corpo=p.tipo==="textoLongo"?`<textarea class="txt" data-k="${k}" data-p="${p.id}" data-t placeholder="Escreva aqui">${esc(val||"")}</textarea>`:`<input class="txt" data-k="${k}" data-p="${p.id}" data-t value="${esc(val||"")}" placeholder="Escreva aqui">`;
   const aj=p.ajuda||(p.tipo==="escolha"&&p.multi?(p.max?`Escolha até ${p.max}.`:"Pode marcar mais de uma."):"");
-  return `<div class="perg"><p class="pt">${esc(p.titulo)}</p>${aj?`<p class="pa">${esc(aj)}</p>`:""}${corpo}</div>`;}
+  const se=p.se?` data-se="${p.id}" data-sk="${k}"`:"",oc=p.se&&!visivel(p,k)?" oculta":"";
+  return `<div class="perg${oc}"${se}><p class="pt">${esc(p.titulo)}</p>${aj?`<p class="pa">${esc(aj)}</p>`:""}${corpo}</div>`;}
+// Pergunta condicionada (2.93): aparece só quando uma das opções da pergunta-mãe foi marcada.
+const alvoDe=k=>k==="r"?R.resp:(R.amb[k]||{});
+function visivel(p,k){if(!p.se)return true;const v=alvoDe(k)[p.se.p];return [].concat(v||[]).some(id=>p.se.o.includes(id));}
+function atualizaCond(raiz){raiz.querySelectorAll(".perg[data-se]").forEach(el=>{const p=achaP(el.dataset.sk,el.dataset.se),on=visivel(p,el.dataset.sk),antes=!el.classList.contains("oculta");
+  if(on===antes)return;el.classList.toggle("oculta",!on);if(on){el.classList.remove("aparece");void el.offsetWidth;el.classList.add("aparece");}});}
 // Caixinha de anotações no fim de cada etapa (2.92, pedido do Luan).
 const notaHtml=(k,pid,val,txt)=>`<div class="nota"><label>Anotações <span>opcional</span></label><p>${txt}</p><textarea class="txt" data-k="${k}" data-p="${pid}" data-t placeholder="Escreva aqui">${esc(val||"")}</textarea></div>`;
 const respondidas=a=>Object.values(R.amb[a.id]||{}).filter(v=>Array.isArray(v)?v.length:v).length;
@@ -147,32 +216,36 @@ function desenhar(){const t=T[at],tela=$("#tela");tela.className="";void tela.of
     tela.innerHTML=`<div class="etq">Passo ${at+1}</div><h1 class="t">${esc(s.titulo)}</h1>${s.texto?`<p class="sub">${esc(s.texto)}</p>`:""}`+
       (s.tipo==="ambientes"?`<div class="ambs">${D.ambientes.map((a,i)=>{const n=respondidas(a);return `<button type="button" class="amb" data-amb="${a.id}" style="background-image:url('${foto(a.foto)}');animation-delay:${i*.04}s">${n?`<span class="feito">✓ ${n}</span>`:""}<b>${esc(a.nome)}</b><small>${n?"toque para revisar":"toque para responder"}</small></button>`;}).join("")}</div>`
       :s.perguntas.map((p,i)=>pergHtml(p,R.resp[p.id],"r").replace('class="perg"',`class="perg" style="animation-delay:${Math.min(i,6)*.05}s"`)).join(""))+
-      notaHtml("r","nota:"+s.id,R.resp["nota:"+s.id],s.tipo==="ambientes"?"Algo sobre a casa toda ou um ambiente que não está na lista?":"Quer explicar alguma escolha ou contar algo que não perguntei?");}
+      notaHtml("r","nota:"+s.id,R.resp["nota:"+s.id],s.tipo==="ambientes"?"Faltou algum ambiente?":"Quer explicar algo?");}
   $("#b-volta").style.visibility=at===0?"hidden":"visible";ligar(tela);window.scrollTo({top:0});R._at=at;guardar();preCarregar();}
 function ligar(raiz){
   raiz.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{const k=b.dataset.k,pid=b.dataset.p,o=b.dataset.o,alvo=k==="r"?R.resp:(R.amb[k]=R.amb[k]||{});
     const p=achaP(k,pid);if(p.multi){let v=[...(alvo[pid]||[])];if(v.includes(o))v=v.filter(x=>x!==o);else{if(p.max&&v.length>=p.max)v.shift();v.push(o);}alvo[pid]=v;}else alvo[pid]=alvo[pid]===o?"":o;
-    guardar();raiz.querySelectorAll(`[data-k="${k}"][data-p="${pid}"][data-o]`).forEach(x=>x.classList.toggle("on",ehOn(alvo[pid],x.dataset.o,p.multi)));if(navigator.vibrate)try{navigator.vibrate(8);}catch(e){}});
+    guardar();raiz.querySelectorAll(`[data-k="${k}"][data-p="${pid}"][data-o]`).forEach(x=>x.classList.toggle("on",ehOn(alvo[pid],x.dataset.o,p.multi)));atualizaCond(raiz);if(navigator.vibrate)try{navigator.vibrate(8);}catch(e){}});
   raiz.querySelectorAll("[data-t]").forEach(i=>i.oninput=()=>{const k=i.dataset.k,alvo=k==="r"?R.resp:(R.amb[k]=R.amb[k]||{});alvo[i.dataset.p]=i.value;guardar();});
   raiz.querySelectorAll("[data-amb]").forEach(b=>b.onclick=()=>abrirAmb(b.dataset.amb));
   const wa=raiz.querySelector("#b-wa");if(wa)wa.onclick=enviarWA;const ar=raiz.querySelector("#b-arq");if(ar)ar.onclick=salvarArquivo;}
 function achaP(k,pid){if(k==="r"){for(const s of D.secoes)for(const p of s.perguntas)if(p.id===pid)return p;}else{const a=D.ambientes.find(x=>x.id===k);return a?.perguntas.find(p=>p.id===pid)||{};}return {};}
 function abrirAmb(id){const a=D.ambientes.find(x=>x.id===id),f=$("#folha");R.amb[id]=R.amb[id]||{};
-  f.innerHTML=`<div class="folha-cap" style="background-image:url('${foto(a.foto)}')"><button class="folha-volta" id="f-volta">‹ Ambientes</button></div><main><div class="etq">Ambiente</div><h1 class="t">${esc(a.nome)}</h1><p class="sub">Responda só o que fizer sentido.</p>${a.perguntas.map(p=>pergHtml(p,R.amb[id][p.id],id)).join("")}
-    ${notaHtml(id,"nota",R.amb[id].nota,`Algo mais sobre este ambiente? Um móvel que vai junto, uma mania, um sonho...`)}
+  f.innerHTML=`<div class="folha-cap" style="background-image:url('${foto(a.foto)}')"><button class="folha-volta" id="f-volta">‹ Ambientes</button></div><main><div class="etq">Ambiente</div><h1 class="t">${esc(a.nome)}</h1><p class="sub">Responda só o que quiser.</p>${a.perguntas.map(p=>pergHtml(p,R.amb[id][p.id],id)).join("")}
+    ${notaHtml(id,"nota",R.amb[id].nota,`Algo mais sobre este ambiente?`)}
     <button class="btn" id="f-ok" style="width:100%;margin-top:22px">Pronto, voltar aos ambientes</button></main>`;
   f.scrollTop=0;requestAnimationFrame(()=>f.classList.add("on"));ligar(f);const fecha=()=>{f.classList.remove("on");setTimeout(()=>{f.innerHTML="";},400);desenhar();};$("#f-volta").onclick=fecha;$("#f-ok").onclick=fecha;}
 $("#b-prox").onclick=()=>{if(at<T.length-1){dir=1;at++;desenhar();}};
 $("#b-volta").onclick=()=>{if(at>0){dir=-1;at--;desenhar();}};
-function escolhidas(){const L=[];const pega=(ps,vals)=>ps.forEach(p=>{if(p.tipo!=="escolha")return;[].concat(vals?.[p.id]||[]).forEach(id=>{const o=p.opcoes.find(x=>x.id===id);if(o&&o.foto)L.push(o);});});
+function escolhidas(){const L=[];const pega=(ps,vals)=>ps.forEach(p=>{if(p.tipo!=="escolha"||(p.se&&![].concat(vals?.[p.se.p]||[]).some(id=>p.se.o.includes(id))))return;[].concat(vals?.[p.id]||[]).forEach(id=>{const o=p.opcoes.find(x=>x.id===id);if(o&&o.foto)L.push(o);});});
   D.secoes.forEach(s=>pega(s.perguntas,R.resp));D.ambientes.forEach(a=>pega(a.perguntas,R.amb[a.id]));return L;}
 function fimHtml(){const E=escolhidas(),amb=D.ambientes.filter(a=>respondidas(a));
-  return `<div class="parabens"><div class="ic">✓</div><h1 class="t">Obrigado${D.primeiroNome?", "+esc(D.primeiroNome):""}!</h1><p class="sub">Agora é só enviar. O ${esc(D.arquiteto)} recebe tudo organizado e, no projeto, vamos ver juntos o que funciona melhor.</p></div>
+  return `<div class="parabens"><div class="ic">✓</div><h1 class="t">Obrigado${D.primeiroNome?", "+esc(D.primeiroNome):""}!</h1><p class="sub">Falta só enviar.</p></div>
+  <div class="res"><h3>O que acontece agora</h3><div class="cf cl"><i>1</i><span><strong>Você envia.</strong></span></div><div class="cf cl"><i>2</i><span><strong>Eu estudo</strong> suas respostas.</span></div><div class="cf cl"><i>3</i><span><strong>A gente conversa</strong> e ajusta juntos.</span></div></div>
   ${E.length?`<div class="res"><h3>Você escolheu</h3><div class="mini">${E.slice(0,24).map(o=>`<i style="background-image:url('${foto(o.foto)}')" title="${esc(o.rotulo)}"></i>`).join("")}</div></div>`:""}
   ${D.ambientes.length?`<div class="res"><h3>Ambientes respondidos</h3><p style="margin:0">${amb.length} de ${D.ambientes.length}${amb.length<D.ambientes.length?" · você pode voltar e completar":""}</p></div>`:""}
-  <div class="res"><h3>Enviar</h3><p style="margin:0 0 10px">Toque no botão: o WhatsApp abre com um resumo e um código. Envie a mensagem como está, sem apagar o código.</p>
-  <button class="btn" id="b-wa" style="width:100%">Enviar pelo WhatsApp</button><button class="btn sec" id="b-arq" style="width:100%;margin-top:8px">Salvar as respostas em arquivo</button><p class="dica">Use o arquivo se o WhatsApp não abrir: é só mandá-lo para o ${esc(D.arquiteto)}.</p></div>`;}
-function respostas(){return {v:3,i:D.bid,t:D.tipo,ver:D.ver,cliente:D.cliente,ambs:D.ambientes.map(a=>[a.id,a.nome,a.ref]),resp:R.resp,amb:R.amb,enviadoEm:new Date().toISOString()};}
+  <div class="res"><h3>Enviar</h3><p style="margin:0 0 10px">Envie a mensagem como está, sem apagar o código.</p>
+  <button class="btn" id="b-wa" style="width:100%">Enviar pelo WhatsApp</button><button class="btn sec" id="b-arq" style="width:100%;margin-top:8px">Salvar as respostas em arquivo</button><p class="dica">Só se o WhatsApp não abrir.</p></div>`;}
+// Só vai o que o cliente vê: resposta de pergunta condicionada que ficou escondida sai.
+function limpo(ps,V){const o={...(V||{})};ps.forEach(p=>{if(p.se&&![].concat(o[p.se.p]||[]).some(id=>p.se.o.includes(id)))delete o[p.id];});return o;}
+function respostas(){const amb={};D.ambientes.forEach(a=>{if(R.amb[a.id])amb[a.id]=limpo(a.perguntas,R.amb[a.id]);});
+  return {v:3,i:D.bid,t:D.tipo,ver:D.ver,cliente:D.cliente,ambs:D.ambientes.map(a=>[a.id,a.nome,a.ref]),resp:limpo(D.secoes.flatMap(s=>s.perguntas),R.resp),amb,enviadoEm:new Date().toISOString()};}
 const b64=u=>{let s="";for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s);};
 async function codigo(o){const b=new TextEncoder().encode(JSON.stringify(o));
   try{if(window.CompressionStream){const cs=new CompressionStream("deflate-raw");const w=cs.writable.getWriter();w.write(b);w.close();return "LFXB2z."+b64(new Uint8Array(await new Response(cs.readable).arrayBuffer()));}}catch(e){}return "LFXB2."+b64(b);}
