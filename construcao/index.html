@@ -145,7 +145,9 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const foto=k=>{if(!k)return "";if(FI)return FI[k]||"";if(k.startsWith("lib:"))return "fotos/"+k.slice(4)+".jpg";if(k.startsWith("up:"))return "fotos/u-"+k.slice(3)+".jpg";return k.startsWith("data:")?k:"";};
 let D,M,R={resp:{},amb:{}},CH="",T=[],at=0,dir=1,nPerg=0;
 const guardar=()=>{if(D.previa)return;try{localStorage.setItem(CH,JSON.stringify(R));}catch(e){}};
-function lerHash(){const h=location.hash.slice(1);if(!h)return null;try{const b=atob(h.replace(/-/g,"+").replace(/_/g,"/"));return JSON.parse(new TextDecoder().decode(Uint8Array.from(b,c=>c.charCodeAt(0))));}catch(e){return null;}}
+function lerHash(){const h=location.hash.slice(1);if(!h)return null;try{const b=atob(h.replace(/-/g,"+").replace(/_/g,"/"));const j=JSON.parse(new TextDecoder().decode(Uint8Array.from(b,c=>c.charCodeAt(0))));
+  // Link curto (2.98.8): [id, nome, ambientes]; o tipo é a pasta do endereço (/suite/).
+  if(Array.isArray(j)){const t=location.pathname.split("/").filter(Boolean).pop()||"";return {i:j[0],t,c:j[1]||"",n:(j[1]||"").split(" ")[0],a:j[2]||[]};}return j;}catch(e){return null;}}
 function erro(t){$("#carrega")?.remove();document.body.innerHTML=`<div class="erro"><div><b>Ops!</b>${t}</div></div>`;}
 async function iniciar(){let G=G0;
   if(!G){try{G=await fetch("dados.json?"+Date.now(),{cache:"no-store"}).then(r=>r.json());}catch(e){return erro("Não consegui abrir o briefing agora. Confira a internet e tente de novo.");}}
