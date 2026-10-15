@@ -262,7 +262,7 @@ function codigoCurto(){const Q=M.secoes.flatMap(s=>s.perguntas),r=[];const val=(
   return {v:4,i:D.bid,t:D.tipo,ver:D.ver,r};}
 // 2.93.6, pedido do Luan: a mensagem não descreve as respostas; só avisa quem respondeu e leva o código.
 function resumoTexto(){return `✅ *Briefing respondido · ${D.cliente||"cliente"}*
-_${D.tipo==="interiores"?"Interiores":"Construção"} · ${D.escritorio}_`;}
+_${M.nome||(D.tipo==="interiores"?"Interiores":"Construção")} · ${D.escritorio}_`;}
 async function enviarWA(){const cod=await codigo(codigoCurto()),msg=resumoTexto()+"\n\n"+cod;
   if(msg.length>60000){alert("As respostas ficaram grandes demais para o WhatsApp. Use 'Salvar as respostas em arquivo'.");return;}
   const url="https://wa.me/"+(D.whats||"")+"?text="+encodeURIComponent(msg);window.open(url,"_blank")||(location.href=url);}
